@@ -80,8 +80,8 @@ HireIQ/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-org/mike-smart-match.git
-cd mike-smart-match
+git clone https://github.com/lucky092003/HireIQ.git
+cd HireIQ
 ```
 
 ### 2. Configure the backend
