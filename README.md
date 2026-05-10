@@ -175,10 +175,21 @@ Example request body:
 
 MIT
 
-## Working Flow
 
-"C:\Users\lucky\Desktop\HireIQ\Images\Flow Images.png"
+## Screenshots
 
-## Frontend UI
-![alt text](<Screenshot 2026-05-10 100333.png>) 
-![alt text](<Screenshot 2026-05-10 100519.png>)
+<div align="center">
+
+### Flow Images
+<img src="Images/Flow%20Images.png" alt="HireIQ workflow overview" width="900" />
+
+<br /><br />
+
+### Frontend UI
+<img src="Images/Screenshot%202026-05-10%20100333.png" alt="HireIQ candidate matching screen" width="900" />
+
+<br /><br />
+
+<img src="Images/Screenshot%202026-05-10%20100519.png" alt="HireIQ results screen" width="900" />
+
+</div>
