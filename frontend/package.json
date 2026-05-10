@@ -1,0 +1,70 @@
+{
+  "name": "mike-smart-match-frontend",
+  "version": "1.0.0",
+  "description": "Professional React frontend for AI-powered candidate matching system",
+  "main": "src/main.jsx",
+  "type": "module",
+  "private": true,
+  "author": "Mike Smart Match Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/mike-smart-match.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/mike-smart-match/issues"
+  },
+  "homepage": "https://github.com/your-org/mike-smart-match#readme",
+  "keywords": [
+    "react",
+    "recruitment",
+    "ai",
+    "candidate-matching",
+    "langchain",
+    "fastapi"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint src --ext .js,.jsx --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "npx vite-bundle-analyzer dist"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "vite": "^5.4.10",
+    "vitest": "^1.6.0",
+    "@vitest/ui": "^1.6.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

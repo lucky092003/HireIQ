@@ -1,1 +1,139 @@
-# HireIQ
+# Mike Smart Match
+
+Mike Smart Match is an AI-powered candidate matching app that ranks candidates against a job description using a FastAPI backend, LangChain/OpenAI-based extraction and scoring, PostgreSQL with `pgvector`, and a React/Vite frontend.
+
+## Features
+
+- Match candidates by full job description or quick inputs such as title, skills, location, and experience.
+- Rank candidates with match scores, rationale, and location fit.
+- Export results to CSV from the UI.
+- Store and query embeddings in PostgreSQL with `pgvector`.
+
+## Tech Stack
+
+- Backend: FastAPI, Uvicorn, LangChain, OpenAI, psycopg2
+- Database: PostgreSQL + `pgvector`
+- Frontend: React, Vite
+
+## Project Structure
+
+```text
+backend/
+  app/
+    routes/
+    schemas/
+    services/
+  migration.sql
+  populate_embeddings.py
+  run.py
+frontend/
+  src/
+    components/
+  package.json
+```
+
+## Prerequisites
+
+- Python 3.10 or newer
+- Node.js 16 or newer
+- PostgreSQL database with the `vector` extension enabled
+- OpenAI-compatible API key and base URL
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-org/mike-smart-match.git
+cd mike-smart-match
+```
+
+### 2. Configure the backend
+
+Create a `backend/.env` file with the following variables:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+OPENAI_API_BASE=https://api.openai.com/v1
+DATABASE_URL=postgresql://user:password@host:5432/database
+```
+
+Install backend dependencies:
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+### 3. Prepare the database
+
+Run the SQL migration to enable `pgvector` and add the embedding column:
+
+```bash
+psql "$DATABASE_URL" -f migration.sql
+```
+
+If your shell does not support that form, run the file with your preferred PostgreSQL client or paste the contents into your database console.
+
+If candidate records already exist, populate their embeddings:
+
+```bash
+python populate_embeddings.py
+```
+
+### 4. Configure the frontend
+
+Install frontend dependencies:
+
+```bash
+cd ../frontend
+npm install
+```
+
+## Running the App
+
+Open two terminals and run the backend and frontend separately.
+
+### Backend
+
+```bash
+cd backend
+python run.py
+```
+
+The API will be available at `http://127.0.0.1:8000`, and interactive docs will be available at `http://127.0.0.1:8000/docs`.
+
+### Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+The Vite app will run at `http://127.0.0.1:5173`.
+
+## API Endpoint
+
+- `POST /api/mike/match`
+
+Example request body:
+
+```json
+{
+  "job_title": "Senior React Developer",
+  "location": "Remote",
+  "skills": ["React", "TypeScript", "PostgreSQL"],
+  "experience_years": 5,
+  "job_description": "Build and maintain modern frontend applications..."
+}
+```
+
+## Notes
+
+- The backend accepts either a full job description or quick inputs such as skills and experience.
+- The frontend exports matched candidates to CSV.
+- Matching depends on a reachable PostgreSQL database and a valid OpenAI-compatible model endpoint.
+
+## License
+
+MIT
