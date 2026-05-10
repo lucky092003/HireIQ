@@ -175,7 +175,6 @@ Example request body:
 
 MIT
 
-## Sample Screenshot
+## Working Flow
 
-![alt text](<Screenshot 2026-05-10 100333.png>)
-![alt text](<Screenshot 2026-05-10 100519.png>) 
+c:\Users\lucky\Downloads\Wroking Image.png
