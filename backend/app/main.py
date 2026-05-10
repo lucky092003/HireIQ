@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes.match import router
 
 app = FastAPI(
-    title="Mike Smart Match",
+    title="HireIQ",
     description="LangChain-powered JD to candidate ranking system",
     version="1.0.0"
 )
@@ -24,7 +24,7 @@ app.include_router(router)
 def health():
     return {
         "status": "running",
-        "service": "Mike Smart Match",
+        "service": "HireIQ",
         "version": "1.0.0"
     }
 
@@ -33,8 +33,8 @@ def health():
 def detailed_health():
     return {
         "status": "healthy",
-        "service": "Mike Smart Match - LangChain Agent",
+        "service": "HireIQ - LangChain Agent",
         "endpoints": {
-            "match": "POST /api/mike/match"
+            "match": "POST /api/hireiq/match"
         }
     }

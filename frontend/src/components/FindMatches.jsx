@@ -85,7 +85,7 @@ export default function FindMatches({
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `mike-smart-match-results-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `hireiq-results-${new Date().toISOString().slice(0, 10)}.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -95,7 +95,7 @@ export default function FindMatches({
     setError(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/mike/match", {
+      const response = await fetch("http://127.0.0.1:8000/api/hireiq/match", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -169,7 +169,7 @@ export default function FindMatches({
         <div className="results-panel">
           <div className="results-header">
             <div>
-              <h3>Top Candidates Matched by Mike</h3>
+              <h3>Top Candidates Matched by HireIQ</h3>
               <p className="candidate-count">{results.length} candidates found</p>
             </div>
 
@@ -238,7 +238,7 @@ export default function FindMatches({
                   </div>
 
                   <div className="candidate-footer">
-                    <div className="mike-badge">Matched by Mike</div>
+                    <div className="hireiq-badge">Matched by HireIQ</div>
                     <div className="view-details">Click to view details</div>
                   </div>
                 </div>

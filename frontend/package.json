@@ -1,20 +1,20 @@
 {
-  "name": "mike-smart-match-frontend",
+  "name": "hireiq-frontend",
   "version": "1.0.0",
   "description": "Professional React frontend for AI-powered candidate matching system",
   "main": "src/main.jsx",
   "type": "module",
   "private": true,
-  "author": "Mike Smart Match Team",
+  "author": "HireIQ Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/mike-smart-match.git"
+    "url": "https://github.com/your-org/hireiq.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/mike-smart-match/issues"
+    "url": "https://github.com/your-org/hireiq/issues"
   },
-  "homepage": "https://github.com/your-org/mike-smart-match#readme",
+  "homepage": "https://github.com/your-org/hireiq#readme",
   "keywords": [
     "react",
     "recruitment",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Simple server launcher for Mike Smart Match
+Simple server launcher for HireIQ
 """
 import sys
 import os
@@ -12,9 +12,9 @@ if __name__ == "__main__":
     from app.main import app
     import uvicorn
     
-    print("🚀 Starting Mike Smart Match Backend...")
-    print("📡 API running at http://127.0.0.1:8000")
-    print("📚 Docs at http://127.0.0.1:8000/docs")
+    print(" Starting HireIQ Backend...")
+    print(" API running at http://127.0.0.1:8000")
+    print(" Docs at http://127.0.0.1:8000/docs")
     
     uvicorn.run(
         app,

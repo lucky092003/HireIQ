@@ -187,7 +187,7 @@ Provide a concise rationale explaining why this candidate is a good match."""
     except Exception:
         skills = str(candidate_data.get("skills") or "").strip()
         experience = candidate_data.get("experience")
-        parts = ["Matched by Mike based on profile relevance"]
+        parts = ["Matched by HireIQ based on profile relevance"]
         if skills:
             parts.append(f"skills: {skills[:80]}")
         if experience is not None:

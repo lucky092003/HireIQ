@@ -5,7 +5,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-router = APIRouter(prefix="/api/mike")
+router = APIRouter(prefix="/api/hireiq")
 
 
 def _build_default_job_description(payload: MatchRequest) -> str:
@@ -37,7 +37,7 @@ async def match_jd(payload: MatchRequest):
     2. Generates embeddings
     3. Queries pgvector database for similar candidates
     4. Generates personalized match rationales
-    5. Returns ranked results with "Matched by Mike" branding
+    5. Returns ranked results with HireIQ branding
     """
     
     supplied_jd = (payload.job_description or "").strip()

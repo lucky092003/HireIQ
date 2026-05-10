@@ -45,7 +45,7 @@ export default function App() {
       <div className="container app-grid">
         <header className="hero-section">
           <div className="brand-row">
-            <div className="brand-mark">M</div>
+            <div className="brand-mark">H</div>
             <div>
               <span className="eyebrow">AI recruiter assistant</span>
               <h1 className="hero-title">HireIQ</h1>
