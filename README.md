@@ -18,19 +18,55 @@ Mike Smart Match is an AI-powered candidate matching app that ranks candidates a
 ## Project Structure
 
 ```text
-backend/
-  app/
-    routes/
-    schemas/
-    services/
-  migration.sql
-  populate_embeddings.py
-  run.py
-frontend/
-  src/
-    components/
-  package.json
+HireIQ/
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── routes/
+│   │   │   └── match.py
+│   │   ├── schemas/
+│   │   │   └── match_schema.py
+│   │   └── services/
+│   │       └── langchain_service.py
+│   ├── migration.sql
+│   ├── populate_embeddings.py
+│   └── run.py
+├── frontend/
+│   ├── index.html
+│   ├── package.json
+│   └── src/
+│       ├── App.jsx
+│       ├── main.jsx
+│       ├── styles.css
+│       └── components/
+│           ├── FindMatches.jsx
+│           ├── FindMatches.css
+│           ├── JobCard.jsx
+│           └── ResultsPanel.jsx
+├── candidates_rows.csv
+└── README.md
 ```
+
+### What each folder does
+
+- `backend/app/main.py`: FastAPI app setup, CORS, and health endpoints.
+- `backend/app/routes/`: API routes. Right now `match.py` handles the match endpoint.
+- `backend/app/schemas/`: Pydantic request/response models.
+- `backend/app/services/`: Matching logic, LLM extraction, embedding lookup, scoring, and rationale generation.
+- `backend/migration.sql`: Database migration for `pgvector` and candidate embeddings.
+- `backend/populate_embeddings.py`: Backfills embeddings for existing candidate rows.
+- `frontend/src/`: React UI entry point, pages, and reusable components.
+- `frontend/src/components/`: Job card preview, search action, and results UI.
+- `candidates_rows.csv`: Sample candidate dataset used to seed the database.
+
+## How It Works
+
+1. The recruiter enters a job title, skills, location, experience, or a full job description in the frontend.
+2. `frontend/src/components/FindMatches.jsx` sends that data to `POST /api/mike/match`.
+3. `backend/app/routes/match.py` validates the request and builds a fallback job description when only quick inputs are provided.
+4. `backend/app/services/langchain_service.py` extracts JD details, generates embeddings, filters candidates from PostgreSQL, and scores them.
+5. The backend returns the ranked candidates with match scores, location fit, matched skills, and rationale.
+6. `frontend/src/components/ResultsPanel.jsx` renders the results and lets the user sort or export them to CSV.
 
 ## Prerequisites
 
@@ -133,6 +169,7 @@ Example request body:
 - The backend accepts either a full job description or quick inputs such as skills and experience.
 - The frontend exports matched candidates to CSV.
 - Matching depends on a reachable PostgreSQL database and a valid OpenAI-compatible model endpoint.
+- If you want to keep the codebase cleaner over time, keep all route logic inside `backend/app/routes/`, matching/scoring logic inside `backend/app/services/`, and UI components inside `frontend/src/components/`.
 
 ## License
 
